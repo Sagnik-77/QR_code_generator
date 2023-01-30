@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Create QR Code for Your Awesome Link</h1>
+      <h2>Enter a Link Below to Generate QR Code</h2>
+      <form action="/" method="POST">
+        <input type="text" name="link" />
+        <button type="submit">Generate</button>
+      </form>
+
+      {% if data %}
+      <div class="qr">
+        <img src="{{data}}" alt="" />
+        <p>Here is the QR Code we generated for you</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0rem 10rem;
+    font-family: "Poppins", sans-serif;
+  }
+  .title {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    color: rgb(60, 60, 60);
+  }
+  .titleh1 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .title h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  form input {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    width: 50rem;
+    background: black;
+    color: azure;
+    border: none;
+    border-radius: 0.5rem;
+  }
+  form button {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: rgb(41, 64, 121);
+    border: none;
+    color: rgb(252, 252, 252);
+    padding: 1rem 1rem;
+    cursor: pointer;
+    border-radius: 2rem;
+  }
+  .qr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .qr img {
+    width: 15rem;
+    height: 15rem;
+    border: 2px solid rgb(60, 60, 60);
+  }
+  p {
+    font-size: 1rem;
+    margin: 1rem 0;
+    font-weight: 600;
+    color: rgb(60, 60, 60);
+  }
+</style>
